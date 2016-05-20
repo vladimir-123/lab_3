@@ -82,8 +82,8 @@ int main(int argc, char const *argv[])
 */
     TRationalNum myFirst(3, 5);
     TRationalNum mySecond(1, 2);
-    myFirst += mySecond;
-    std::cout << myFirst << "\n";
+    TRationalNum Result3 = mySecond + 2;
+    std::cout << Result3 << "\n";
 /*
     temp = myResult.GetNumerator();
     std::cout << "Num " << temp << "\n";

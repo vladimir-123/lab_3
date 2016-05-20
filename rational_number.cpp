@@ -25,7 +25,7 @@ int TRationalNum::GetWholePart() const{
 }
 
 int CommonDiv(int a, int b) {
-while (a && b) { // находит общий множитель
+    while (a && b) { // находит общий множитель
         a %= b;
         if (a) {
             b %= a;
@@ -128,13 +128,48 @@ void operator+=(TRationalNum& RAugend, const TRationalNum& RAddend) {
     RAugend = RAugend + RAddend;
 }
 
+void operator-=(TRationalNum& RAugend, const TRationalNum& RAddend) {
+    RAugend += -RAddend;
+}
 
+void operator*=(TRationalNum& RMultiplier, const TRationalNum& RMultiplicand) {
+    RMultiplier = RMultiplier * RMultiplicand;
+}
 
+void operator/=(TRationalNum& RDivident, const TRationalNum& RDivisor) {
+    RDivident *= RDivisor.Reciprocal();
+}
 
+bool operator!=(const TRationalNum& FirstValue, const TRationalNum& SecondValue) {
+    return FirstValue == SecondValue ? false : true;
+}
 
+bool operator<(const TRationalNum& FirstValue, const TRationalNum& SecondValue) {
+    if (FirstValue.GetNumerator() * SecondValue.GetDenominator() <
+        SecondValue.GetNumerator() * FirstValue.GetDenominator() &&
+        FirstValue != SecondValue) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
+bool operator>(const TRationalNum& FirstValue, const TRationalNum& SecondValue) {
+    return FirstValue < SecondValue || FirstValue == SecondValue ? 0 : 1;
+}
 
+bool operator<=(const TRationalNum& FirstValue, const TRationalNum& SecondValue) {
+    return FirstValue < SecondValue || FirstValue == SecondValue ? 1 : 0;
+}
 
+bool operator>=(const TRationalNum& FirstValue, const TRationalNum& SecondValue) {
+    return FirstValue > SecondValue || FirstValue == SecondValue ? 1 : 0;
+}
+
+TRationalNum operator--(const TRationalNum& RValue) {
+    TRationalNum DecrRValue = RValue - 1;
+    return DecrRValue;
+}
 
 
 

@@ -21,6 +21,7 @@ public:
     TRationalNum operator-() const;
     TRationalNum operator*(const TRationalNum& mult) const;
     TRationalNum Reciprocal() const;
+    //operator double() {return Numerator / Denominator;} не могу написать функцию преобразования типов
 };
 
 int CommonDiv(int a, int b);
@@ -31,5 +32,14 @@ bool operator==(const TRationalNum& FirstValue, const TRationalNum& SecondValue)
 TRationalNum operator++(const TRationalNum& RValue);
 std::ostream& operator<<(std::ostream& os, const TRationalNum& RationalValue);
 void operator+=(TRationalNum& RAugend, const TRationalNum& RAddend);
+void operator-=(TRationalNum& RAugend, const TRationalNum& RAddend);
+void operator*=(TRationalNum& RMultiplier, const TRationalNum& RMultiplicand);
+void operator/=(TRationalNum& RDivident, const TRationalNum& RDivisor);
+bool operator!=(const TRationalNum& FirstValue, const TRationalNum& SecondValue);
+bool operator<(const TRationalNum& FirstValue, const TRationalNum& SecondValue);
+bool operator>(const TRationalNum& FirstValue, const TRationalNum& SecondValue);
+bool operator<=(const TRationalNum& FirstValue, const TRationalNum& SecondValue);
+bool operator>=(const TRationalNum& FirstValue, const TRationalNum& SecondValue);
+TRationalNum operator--(const TRationalNum& RValue);
 
 #endif
